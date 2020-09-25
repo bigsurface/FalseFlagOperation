@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="libs/howler.js"></script>
+    <style>
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto 0;
+            text-align: center;
+        }
+
+        .button {
+            width: 138px;
+            height: 69px;
+            border-radius: 3px;
+            border: 6px solid black;
+            margin: 4px 4px;
+        }
+
+        .item { 
+            width: 30px;
+            height: 20px;
+            margin-top: 18px;
+            margin-left: 3px;
+        }
+
+        .header{
+            width: 30px;
+            height: 20px;
+            margin-left: 50%;
+            text-align: center;
+        }
+
+        .a{
+            width: 30px;
+            height: 20px;
+            margin-left: 50%;
+            text-align: center;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item :hover {
+            transform: scale(1.2);
+        }
+
+        .canvas {
+            background-color: black;
+            width: 1350px;
+            height: 650px;
+            position: absolute;
+        }
+
+        .red-stripe1 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 25px;
+            margin-left: 100px;
+        }
+
+        .white-stripe1 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe2 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .white-stripe2 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe3 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .white-stripe3 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe4 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .white-stripe4 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe5 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .white-stripe5 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe6 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .white-stripe6 {
+            background-color: black;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .red-stripe7 {
+            background-color: #BF0A30;
+            width: 780px;
+            height: 30px;
+            margin-top: 0px;
+            margin-left: 100px;
+        }
+
+        .blue-field {
+            background-color: black;
+            width: 333px;
+            height: 210px;
+            margin-top: 25px;
+            margin-left: 100px;
+            position: absolute;
+        }
+
+        .star {
+            background-color: white;
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+
+    <title>JollyRoger</title>
+</head>
+<body>
+    <div class="canvas">
+
+        <div class="blue-field">
+            <div class="container"></div>
+        </div>
+        <div class="red-stripe1"></div>
+        <div class="white-stripe1"></div>
+        <div class="red-stripe2"></div>
+        <div class="white-stripe2"></div>
+        <div class="red-stripe3"></div>
+        <div class="white-stripe3"></div>
+        <div class="red-stripe4"></div>
+        <div class="white-stripe4"></div>
+        <div class="red-stripe5"></div>
+        <div class="white-stripe5"></div>
+        <div class="red-stripe6"></div>
+        <div class="white-stripe6"></div>
+        <div class="red-stripe7"></div>
+    <nav class="ui four item menu">
+
+        <a class="header" href="index.html">JollyRoger</a>
+        <a class="header" href="Party2Death.html">Party2Death</a>
+        <a class="header" href="Vote4AI.html">Vote4AI</a>
+        <a class="header" href="BrokenFence.html">BrokenFence</a>
+
+    </nav>
+    </div>
+</body>
+
+<script>
+        const numStars = 50;
+        const starPaths = Array.from({ length: numStars });
+        starPaths.forEach((e,i) => {
+            starPaths[i]=`img2/${i}.jpeg`;
+            });
+        console.log(starPaths);
+        const playSound = (sound) => { sound.play(); }
+        const numSounds = 50;
+        const sounds = Array.from({ length: numSounds}, (e, i) => new Howl({ src: `sounds2/${i}.mp3`, html5: false, volume: 0.9, loop: false }));
+        const makeDiv = () => document.createElement('div');
+        const divs = Array.from({ length: numStars }, ()=> makeDiv());
+        divs.forEach(div=>div.className='item');
+        const makeStar = () => document.createElement('img');
+        const stars = Array.from({ length: numStars }, ()=>makeStar());
+        stars.forEach((img, i) => img.src=starPaths[i]);
+        const container = document.querySelector('.container');
+        divs.forEach((div, i)=>{
+            div.appendChild(stars[i]);
+            container.appendChild(div);
+
+        })
+divs.forEach( (div, index) => {
+    div.addEventListener('click', () => {
+        playSound(sounds[index])
+    })
+})
+
+</script>
+</html>
